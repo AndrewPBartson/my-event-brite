@@ -1,48 +1,76 @@
-# EventManagement
+# MyEventBrite
 
-### Kal Academy Deep Stack Program - November 2021
+### Deep Stack Program - 11/21 to 1/22
+- Instructor - Kalpana Viswanathan / Kal Academy
+- Team members
+  - Swati Tayal
+  - Priya Kamble
+  - Farkhondeh
+  - Andrew Bartson
+---
 
-### Web Application built using 
-- Microsoft Entity Framework Core 3.1 
-- Docker
-- Microsoft SQL Server
+### Tech Stack
+- Microservices (9) in Docker containers
 - ASP.Net Core MVC
+- ASP.Net Core Authentication
+- Microsoft Entity Framework Core 3.1 
+- Microsoft MSSQL Server
+- Redis cache
+- RabbitMQ message broker
 
-### Details of EventManagement project:
+### Actions available to Users
+  - Browse events
+  - Filter events by location, category, price, and date
+  - Add tickets for an event to cart
+  - Pay for tickets
+---
+## APIs
 
-### Assignment 3a: 
-- We have built web application for users to browse events using multiple filters.
-- We have built EventAPI microservice. Within which we have written multiple APIs as below
-  - Category API
-  - Format API
-  - Location API
+### Event API - Open Data
+  - Event presentation API
+  - Event location API
+  - Event category API
+  - Event format API
   - Picture API
-  - Event API
-- For UI, we have used ASP.Net Web app MVC project as our client. 
-- We have used Docker containers for EventAPI microservice, MSSQL Database and WebMVC client.
+  - Ticket availability API
 
-[See a demo of Assignment 3a](https://youtu.be/6cUGzwwzMZ0) 
----
-### Assignment 3b: 
-- We have built TokenServiceAPI microservice that will provide Authentication and Authorization services to our project. This microservice will be responsible for
-  - Having dedicated database to store user authorization related information
-  - Registration for new users
-  - Provide login support for registered users 
-  - Issue a token for logged in user
-  - Validate the token that will be used by other microservices.
+### TokenService API - Authentication
+  - for register and login
+  - Logged-in users receive a token
+  - Token allows the user to access the secure APIs
 
-- We have added 2 additional Docker containers for TokenService API microservice and its MSSQL Database respectively.
-- We have also configured the docker container for WebMVC client to integrate the same with TokenService API.
+### Cart API - Shopping Cart
+- Users add tickets to cart
+- Contents of cart are saved in Redis cache
 
-[See a demo of Assignment 3b](https://youtu.be/YwbV9ZY5AGs) 
+### Order API - Checkout
+- Users pay for tickets using Stripe
+
 ---
 
+## Docker Containers
+1) UI / Web MVC - Frontend
+5) Event API - Access information about events
+2) MSSQL database server - for Event API
+3) Token Service API - Authentication
+2) MSSQL database server - for Token Service API
+6) Cart API - Shopping cart
+7) Redis cache - for Cart API
+7) Order API - Payment services
+4) RabbitMQ - Messaging between microservices
 
-Swagger document for Event API Microservice will be available at: http://localhost:7000/swagger/index.html
+---
+  
+### Documentation
+- Swagger is configured to provide complete API documentation
+---
 
-Link for the website: http://localhost:7500/
+### Videos
+- [1 - First efforts](https://youtu.be/6cUGzwwzMZ0) 
 
+- [2 - Making progress](https://youtu.be/YwbV9ZY5AGs) 
 
-     
+- [3 - Final demo - featuring all team members](https://youtu.be/nzRd_yhs6-s)
 
- 
+---
+
